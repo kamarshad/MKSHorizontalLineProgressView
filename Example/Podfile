@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MKSHorizontalLineProgressView_Example' do
+  pod 'MKSHorizontalLineProgressView', :path => '../'
+
+  target 'MKSHorizontalLineProgressView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

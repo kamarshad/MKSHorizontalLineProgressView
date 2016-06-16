@@ -1,3 +1,4 @@
+
 #
 # Be sure to run `pod lib lint MKSHorizontalLineProgressView.podspec' to ensure this is a
 # valid spec before submitting.
@@ -7,36 +8,28 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'MKSHorizontalLineProgressView'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of MKSHorizontalLineProgressView.'
+s.name             = "MKSHorizontalLineProgressView"
+s.version          = "0.1.0"
+s.summary          = "Its an Horizontal Line progress view  sub class of UIView"
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+s.description      = "A Horizontal line progress view a sub class of UIView written in Objectivec C"
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+s.homepage         = "https://github.com/kamarshad/MKSHorizontalLineProgressView"
+s.license          = 'MIT'
+s.author           = { "kamarshad" => "kamarshad0786@gmail.com" }
+s.source           = { :git => "https://github.com/kamarshad/MKSHorizontalLineProgressView.git", :tag => s.version.to_s }
+s.social_media_url = 'https://twitter.com/kamarshad'
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/MKSHorizontalLineProgressView'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'mkamarshad-dminc-com' => 'mkamarshad@dminc.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/MKSHorizontalLineProgressView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+s.platform     = :ios, '7.0'
+s.requires_arc = true
 
-  s.ios.deployment_target = '8.0'
+s.source_files = 'Pod/Classes/**/*'
 
-  s.source_files = 'MKSHorizontalLineProgressView/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'MKSHorizontalLineProgressView' => ['MKSHorizontalLineProgressView/Assets/*.png']
-  # }
+# s.frameworks = 'UIKit', 'MapKit'
+s.dependency 'AFNetworking', '~> 2.3'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
+
+
+
+

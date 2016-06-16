@@ -1,0 +1,16 @@
+PODS:
+  - MKSHorizontalLineProgressView (0.1.0)
+
+DEPENDENCIES:
+  - MKSHorizontalLineProgressView (from `../`)
+
+EXTERNAL SOURCES:
+  MKSHorizontalLineProgressView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MKSHorizontalLineProgressView: 2eb98d20007c4155027d33e4582d21d3eef2af58
+
+PODFILE CHECKSUM: 711717adf338f173ffc0bbde021aa5b71306fea8
+
+COCOAPODS: 1.0.0

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,8 +16,59 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQv-Q4-Cng" customClass="MKSHorizontalLineProgressView">
+                                <rect key="frame" x="0.0" y="70" width="600" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RXi-Cs-SPu"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xg-eZ-N7e" customClass="MKSHorizontalLineProgressView">
+                                <rect key="frame" x="0.0" y="120" width="600" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Y1v-ao-Ntx"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3E-4c-yO6" customClass="MKSHorizontalLineProgressView">
+                                <rect key="frame" x="0.0" y="180" width="600" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dKj-wL-GLJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D3E-4c-yO6" firstAttribute="top" secondItem="7xg-eZ-N7e" secondAttribute="bottom" constant="20" id="2Yn-ob-yIr"/>
+                            <constraint firstItem="7xg-eZ-N7e" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="2eh-7P-QHS"/>
+                            <constraint firstItem="uQv-Q4-Cng" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="39e-aK-10t"/>
+                            <constraint firstAttribute="trailing" secondItem="7xg-eZ-N7e" secondAttribute="trailing" id="4q3-lQ-a9C"/>
+                            <constraint firstItem="7xg-eZ-N7e" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="20" id="Hyp-H0-Ku4"/>
+                            <constraint firstItem="uQv-Q4-Cng" firstAttribute="top" secondItem="7xg-eZ-N7e" secondAttribute="bottom" constant="20" id="RMR-3z-Mnf"/>
+                            <constraint firstAttribute="trailing" secondItem="uQv-Q4-Cng" secondAttribute="trailing" id="RQz-Vh-Wr8"/>
+                            <constraint firstItem="uQv-Q4-Cng" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="50" id="SwY-EX-uDm"/>
+                            <constraint firstAttribute="trailing" secondItem="D3E-4c-yO6" secondAttribute="trailing" id="T2h-ja-anJ"/>
+                            <constraint firstItem="7xg-eZ-N7e" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="XLY-zn-yvM"/>
+                            <constraint firstItem="D3E-4c-yO6" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="Zud-zl-Z9Y"/>
+                            <constraint firstItem="7xg-eZ-N7e" firstAttribute="top" secondItem="uQv-Q4-Cng" secondAttribute="bottom" constant="20" id="pWF-rk-VMR"/>
+                            <constraint firstAttribute="trailing" secondItem="7xg-eZ-N7e" secondAttribute="trailing" id="tHK-4a-YVx"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RMR-3z-Mnf"/>
+                                <exclude reference="2eh-7P-QHS"/>
+                                <exclude reference="Hyp-H0-Ku4"/>
+                                <exclude reference="tHK-4a-YVx"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="horizontalLineProgressView1" destination="uQv-Q4-Cng" id="TPg-Wh-qVI"/>
+                        <outlet property="horizontalLineProgressView2" destination="7xg-eZ-N7e" id="A8A-2e-ziq"/>
+                        <outlet property="horizontalLineProgressView3" destination="D3E-4c-yO6" id="T2L-S0-syQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

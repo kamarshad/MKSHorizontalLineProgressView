@@ -1,0 +1,6 @@
+framework module MKSHorizontalLineProgressView {
+  umbrella header "MKSHorizontalLineProgressView-umbrella.h"
+
+  export *
+  module * { export * }
+}

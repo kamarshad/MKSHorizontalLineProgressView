@@ -42,6 +42,7 @@ And follow the steps mentioned in  `Using it in your iOS app` section
   - (void)doIntialSetup{
       
       //Horizontal line with percentage text
+
         self.horizontalLineProgressView1.progressValue = 49.0f;
         self.horizontalLineProgressView1.trackColor = [UIColor colorWithRed:34.0f/255.0f green:34.0f/255.0f blue:34.0f/255.0f alpha:1.0f];
         self.horizontalLineProgressView1.barColor = [UIColor colorWithRed:58.0/255.0 green:170.0/255.0 blue:53.0/255.0 alpha:1];

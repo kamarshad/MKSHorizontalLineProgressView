@@ -5,16 +5,23 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(int32_t, MKSLineProgressViewCap) {
+    MKSLineProgressViewCapButt ,
+    MKSLineProgressViewCapRound ,
+    MKSLineProgressViewCapSquare
+};
+
+
 @interface MKSHorizontalLineProgressView : UIView
 
 #pragma mark - Progress Bar
 /**
- *  @brief holds the color of bar(which show how much a progress line is filled)
+ *  @brief holds the color of bar(which show how much a progress line is filled),default color is red color
  */
 @property (nonatomic,copy) UIColor * barColor;
 
 /**
- *  @brief holds color of track (progress base color)
+ *  @brief holds color of track (progress base color), black color is default color
  */
 @property (nonatomic,copy) UIColor * trackColor;
 
@@ -38,9 +45,15 @@
  */
 @property (nonatomic,assign) CGFloat  progressValue;
 
+/**
+ *  @brief it holds the line cap information, defualt value is MKSLineProgressViewCapRound
+ */
+@property (nonatomic,assign) MKSLineProgressViewCap  lineCap;
+
+
 #pragma mark - Progress Text
 /**
- *  @brief holds the falg value, If this value is true a percentage string will be displayed. Default value is No
+ *  @brief holds the falg value and Default value is YES. If value is YES a percentage string will be displayed otherwise no percentage string.
  */
 @property (nonatomic,assign,getter=isShowPercentageText) BOOL  showPercentageText;
 
@@ -52,7 +65,7 @@
 /**
  *  @brief holds the font name for progress text string
  */
-@property (nonatomic,copy) UIFont * progressPercentageFont;
+@property (nonatomic,copy) UIFont * progressPercentageTextFont;
 
 
 @end

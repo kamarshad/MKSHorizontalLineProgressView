@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "MKSHorizontalLineProgressView"
-s.version          = "0.1.0"
+s.version          = "0.1.1"
 s.summary          = "Its an Horizontal Line progress view  sub class of UIView"
 
 s.description      = "A Horizontal line progress view a sub class of UIView written in Objectivec C"

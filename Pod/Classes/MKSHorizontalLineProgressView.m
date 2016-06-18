@@ -38,15 +38,15 @@
 #pragma mark - Intial Setup
 - (void)initalSetup{
     self.barColor = [UIColor redColor];
-    self.trackColor = [UIColor blackColor];
+    self.trackColor = [UIColor redColor];
     self.barThickness = self.frame.size.height;
     self.barPadding = 0.0f;
     self.trackPadding = 0.0f;
     self.progressValue = 0.0f;
     self.progressPercentageTextColor = [UIColor whiteColor];
-    self.showPercentageText = YES;
-    self.lineCap = MKSLineProgressViewCapRound;
-    self.progressPercentageTextFont = [UIFont fontWithName:@"Helvetica" size:14];
+    self.showPercentageText = NO;
+    
+    self.progressPercentageFont = [UIFont fontWithName:@"Helvetica" size:14];
 }
 
 
@@ -63,7 +63,7 @@
     CGContextSetLineWidth(context, self.barThickness + self.trackPadding);
     CGContextMoveToPoint(context, self.barPadding, self.frame.size.height / 2);
     CGContextAddLineToPoint(context, self.frame.size.width - self.barPadding, self.frame.size.height / 2);
-    CGContextSetLineCap(context, (CGLineCap)self.lineCap);
+    CGContextSetLineCap(context, kCGLineCapRound);
     CGContextStrokePath(context);
     
     // Progress Bar
@@ -72,25 +72,26 @@
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, self.barPadding, self.frame.size.height / 2);
     CGContextAddLineToPoint(context, self.barPadding + [self progressPercentage] , self.frame.size.height / 2);
-    CGContextSetLineCap(context, (CGLineCap)self.lineCap);
+    CGContextSetLineCap(context, kCGLineCapRound);
     CGContextStrokePath(context);
     
     if(self.isShowPercentageText){
         
         int progressValue = [self progressValue];
-        int progressPercentageStringWidth = [self progressPercentage];
+        int progressStringWidth = [self progressPercentage];
         
         //boundry condition
-        if(progressPercentageStringWidth >= self.frame.size.width)
-            progressPercentageStringWidth = self.frame.size.width-5;
+        if(progressStringWidth >= self.frame.size.width)
+            progressStringWidth = self.frame.size.width-10;
         
-        CGFloat tentativeProgressStringWidth  = (progressPercentageStringWidth>20?progressPercentageStringWidth:20);
+        CGFloat tentativeProgressStringWidth  = (progressStringWidth>20?progressStringWidth:20);
         
-        CGRect textRect = CGRectMake((self.barPadding + [self progressPercentage]-tentativeProgressStringWidth), (self.frame.size.height - 21)/2, progressPercentageStringWidth, 21);
+        CGRect textRect = CGRectMake((self.barPadding + [self progressPercentage]-tentativeProgressStringWidth), (self.frame.size.height - 21)/2, progressStringWidth, 21);
     
         NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
         textStyle.alignment = NSTextAlignmentRight;
-        NSDictionary* textFontAttributes = @{NSFontAttributeName: self.progressPercentageTextFont, NSForegroundColorAttributeName: self.progressPercentageTextColor, NSParagraphStyleAttributeName: textStyle};
+        NSDictionary* textFontAttributes = @{NSFontAttributeName: self.progressPercentageFont, NSForegroundColorAttributeName: self.progressPercentageTextColor, NSParagraphStyleAttributeName: textStyle};
+        
         [[NSString stringWithFormat:@"%d %@",progressValue,@"%"] drawInRect: textRect withAttributes: textFontAttributes];
     }
     
@@ -111,6 +112,7 @@
     
     if(progressValue <= 0)
         self.barColor = [self trackColor];
+
     [self setNeedsDisplay];
 }
 

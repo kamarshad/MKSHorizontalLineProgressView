@@ -11,7 +11,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
  Code run well on version iOS 7 and above !
+
+## How It looks 
+ ![cmqyzunweaa_oxg](https://cloud.githubusercontent.com/assets/1333329/16609532/9010aae4-4372-11e6-892e-1bdce1ea9c86.jpg)
  
+
 ## Installation
 
 ## Using Cocoa Pod

@@ -83,7 +83,7 @@ And follow the steps mentioned in  `Using it in your iOS app` section
 
 kamar shad, kamarshad0786@gmail.com
 
-It is almost replica of the repo https://github.com/bphenriques/HorizontalProgressView 
+It is inspired by the repo @ https://github.com/bphenriques/HorizontalProgressView 
 
 ## License
 

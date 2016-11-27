@@ -5,6 +5,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, MKSProgressBarDirection) {
+    MKSProgressBarDirectionFromLeftToRight,
+    MKSProgressBarDirectionFromRightToLeft
+};
+
 @interface MKSHorizontalLineProgressView : UIView
 
 #pragma mark - Progress Bar
@@ -54,5 +59,9 @@
  */
 @property (nonatomic,copy) UIFont * progressPercentageFont;
 
+/**
+ *  @brief holds direction of drawing progress bar
+ */
+@property (nonatomic,assign) MKSProgressBarDirection progressBarDirection;
 
 @end

@@ -47,6 +47,7 @@
     self.showPercentageText = NO;
     
     self.progressPercentageFont = [UIFont fontWithName:@"Helvetica" size:14];
+    self.progressBarDirection = MKSProgressBarDirectionFromLeftToRight;
 }
 
 
@@ -67,11 +68,16 @@
     CGContextStrokePath(context);
     
     // Progress Bar
+    CGFloat xStartPoint = (self.progressBarDirection == MKSProgressBarDirectionFromLeftToRight) ?
+                          self.barPadding : self.frame.size.width - self.barPadding;
+    CGFloat xEndPoint   = (self.progressBarDirection == MKSProgressBarDirectionFromLeftToRight) ?
+                          self.barPadding + [self progressPercentage] :
+                          self.frame.size.width - self.barPadding - [self progressPercentage];
     CGContextSetStrokeColorWithColor(context, self.barColor.CGColor);
     CGContextSetLineWidth(context, self.barThickness);
     CGContextBeginPath(context);
-    CGContextMoveToPoint(context, self.barPadding, self.frame.size.height / 2);
-    CGContextAddLineToPoint(context, self.barPadding + [self progressPercentage] , self.frame.size.height / 2);
+    CGContextMoveToPoint(context, xStartPoint, self.frame.size.height / 2);
+    CGContextAddLineToPoint(context, xEndPoint , self.frame.size.height / 2);
     CGContextSetLineCap(context, kCGLineCapRound);
     CGContextStrokePath(context);
     
@@ -86,10 +92,12 @@
         
         CGFloat tentativeProgressStringWidth  = (progressStringWidth>20?progressStringWidth:20);
         
-        CGRect textRect = CGRectMake((self.barPadding + [self progressPercentage]-tentativeProgressStringWidth), (self.frame.size.height - 21)/2, progressStringWidth, 21);
+        CGFloat xPos = (self.progressBarDirection == MKSProgressBarDirectionFromLeftToRight) ?
+        (self.barPadding + [self progressPercentage] - tentativeProgressStringWidth) : (self.frame.size.width - self.barPadding - [self progressPercentage]);
+        CGRect textRect = CGRectMake(xPos, (self.frame.size.height - 21)/2, progressStringWidth, 21);
     
         NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
-        textStyle.alignment = NSTextAlignmentRight;
+        textStyle.alignment = (self.progressBarDirection == MKSProgressBarDirectionFromLeftToRight) ? NSTextAlignmentRight : NSTextAlignmentLeft;
         NSDictionary* textFontAttributes = @{NSFontAttributeName: self.progressPercentageFont, NSForegroundColorAttributeName: self.progressPercentageTextColor, NSParagraphStyleAttributeName: textStyle};
         
         [[NSString stringWithFormat:@"%d %@",progressValue,@"%"] drawInRect: textRect withAttributes: textFontAttributes];

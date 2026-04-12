@@ -85,9 +85,9 @@ And follow the steps mentioned in  `Using it in your iOS app` section
 
 ## Author
 
-kamar shad, kamarshad0786@gmail.com
+Kamar Shad, kamarshad0786@gmail.com
 
-Please note, it is inspired by the repo @ https://github.com/bphenriques/HorizontalProgressView 
+Inspired from @ https://github.com/bphenriques/HorizontalProgressView 
 
 ## License
 
